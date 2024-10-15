@@ -1,0 +1,8 @@
+student
+  age : 23
+  grade : A+
+  subject : &def
+    - Math
+    - Physics
+
+      ~           
