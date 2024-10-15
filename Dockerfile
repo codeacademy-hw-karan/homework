@@ -31,7 +31,7 @@ RUN mkdir -p /home/ansible/.ssh && \
 
 # Copy the host's public SSH key to the container (make sure to have id_ed25519.pub available)
 # Assuming that you are copying your SSH public key from the build context
-COPY ./id_ed25519.pub /home/ansible/.ssh/authorized_keys
+COPY id_ed25519.pub /home/ansible/.ssh/authorized_keys
 
 # Set the correct ownership and permissions for the authorized_keys file
 RUN chown ansible:ansible /home/ansible/.ssh/authorized_keys && \
