@@ -3,6 +3,10 @@ variable resource_group_name {
   default     = ""
   description = "Resource Group Name"
 }
+variable public_key {
+  description = "The public key to use"
+  type        = string
+}
 
 variable region {
   type        = string
