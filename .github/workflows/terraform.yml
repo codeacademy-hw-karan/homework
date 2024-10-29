@@ -44,10 +44,10 @@ jobs:
         az login --service-principal --username ${{ secrets.AZURE_CLIENT_ID }} --password ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
         terraform init
         if [[ "${{ github.event.inputs.environment }}" == "all" ]]; then
-            terraform plan
+            terraform plan 
         else
             terraform workspace select ${{ github.event.inputs.environment }}
-            terraform plan -var-file vars.${{ github.event.inputs.environment }}.tfvars -out ${{ github.event.inputs.environment }}.plan
+            terraform plan -var "public_key=${{ secrets.PUBLIC_KEY }}" -var-file vars.${{ github.event.inputs.environment }}.tfvars -out ${{ github.event.inputs.environment }}.plan
         fi
     - name: Terraform apply
       run: |
